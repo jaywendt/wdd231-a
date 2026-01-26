@@ -1,7 +1,6 @@
-import { getParkData } from "./parkService.mjs";
-import { parkInfoLinks } from "./parkService.mjs";
-import { parkInfoTemplate } from "./templates.mjs";
-
+import { getParkData, parkInfoLinks } from "./parkService.mjs";
+import setHeaderFooter from "./setHeaderFooter.mjs";
+import { parkInfoTemplate, footerTemplate } from "./templates.mjs";
 
 const parkData = getParkData();
 
@@ -28,31 +27,10 @@ function setParkIntro(data) {
   <p>${parkData.description}</p>`;
 }
 
-function setFooter(data) {
-  const footerEl = document.querySelector("#park-footer");
-  footerEl.innerHTML = footerTemplate(data);
-}
-
-
-
-function getMailingAddress(addresses) {
-  const mailing = addresses.find((address) => address.type === "Mailing");
-  return mailing;
-}
-
-function footerTemplate(info) {
-  const mailing = getMailingAddress(info.addresses);
-  const voice = getVoicePhone(info.contacts.phoneNumbers);
-
-  return `<section class="contact">
-  <h3>Contact Info</h3>
-  <h4>Mailing Address:</h4>
-  <div><p>${mailing.line1}</p>
-  <p>${mailing.city}, ${mailing.stateCode} ${mailing.postalCode}</p></div>
-  <h4>Phone:</h4>
-  <p>${voice}</p>
-  </section>
-  `;
+function setParkInfoLinks(data) {
+  const infoEl = document.querySelector(".info");
+  const html = data.map(mediaCardTemplate);
+  infoEl.innerHTML = html.join("");
 }
 
 setHeaderInfo(parkData);
