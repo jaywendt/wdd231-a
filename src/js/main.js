@@ -33,6 +33,16 @@ function setParkInfoLinks(data) {
   infoEl.innerHTML = html.join("");
 }
 
+async function init() {
+  const parkData = await getParkData();
+
+  setHeaderFooter(parkData);
+  setParkIntro(parkData);
+  setParkInfoLinks(parkInfoLinks);
+}
+
+init();
+
 setHeaderInfo(parkData);
 setParkIntro(parkData);
 setParkInfoLinks(parkInfoLinks);
