@@ -1,4 +1,4 @@
-import { getParkData, parkInfoLinks } from "./parkService.mjs";
+import { getInfoLinks, getParkData, parkInfoLinks } from "./parkService.mjs";
 import setHeaderFooter from "./setHeaderFooter.mjs";
 import { parkInfoTemplate, footerTemplate } from "./templates.mjs";
 
@@ -35,7 +35,7 @@ function setParkInfoLinks(data) {
 
 async function init() {
   const parkData = await getParkData();
-
+  const links = getInfoLinks(parkData.images);
   setHeaderFooter(parkData);
   setParkIntro(parkData);
   setParkInfoLinks(parkInfoLinks);
