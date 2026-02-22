@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>[Park Name]</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/conditions.js"></script>
   </head>
   <body>
     <p class="disclaimer">
@@ -102,7 +102,7 @@
             <svg class="icon" role="presentation" focusable="false">
                 <use
                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                xlink:href="conditions.html"
+                xlink:href="/images/sprite.symbol.svg#info"
                 ></use>
             </svg>
             </a>
@@ -113,7 +113,7 @@
             <svg class="icon" role="presentation" focusable="false">
                 <use
                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                xlink:href="conditions.html"
+                xlink:href="/images/sprite.symbol.svg#alert"
                 ></use>
             </svg>
             </a>
@@ -167,13 +167,26 @@
       </section>
     </header>
     <main id="main">
-      <section class="intro">
-        
-      </section>
-      <section class="info">
-
-      </section>
+        <h1>Current Conditions</h1>
+        <section class="alerts">
+            <h2>Alerts</h2>
+            <ul></ul>
+        </section>
+        <section class="visitorServices">
+            <h2>Visitor Services</h2>
+            <details name="current-details">
+                <summary>Visitor Centers</summary>
+                <ul></ul>
+            </details>
+        </section>
+        <section class="activities">
+            <h2>Activities</h2>
+            <details name="current-details">
+                <summary>All Activities</summary>
+                <ul></ul>
+            </details>
+        </section>>
     </main>
-    <footer id="park-footer"></footer>
+    <footer id="park-footer" class="park-footer"></footer>
   </body>
 </html>
